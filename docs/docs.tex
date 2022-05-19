@@ -1,0 +1,52 @@
+% Preamble
+\documentclass[11pt]{PyRollDocs}
+\usepackage{textcomp}
+
+\addbibresource{refs.bib}
+
+% Document
+\begin{document}
+
+    \title{The Hill Spreading PyRoll Plugin}
+    \author{Christoph Renzing}
+    \date{\today}
+
+    \maketitle
+
+    This plugin provides a spreading modelling approach with Hill's formula for flat rolling.
+
+
+    \section{Model approach}\label{sec:model-approach}
+
+    \subsection{Hill's spread equation}\label{subsec:hill's-spread-equation}
+
+    \textcite{Hill1955} proposed \autoref{eq:hill} for estimation of spreading in flat rolling,
+    $h$ and $b$ are height and width of the workpiece with the indices 0 and 1 denoting the incoming respectively the outgoing profile.
+
+    \begin{equation}
+        \beta = \frac{b_1}{b_0} = \frac{h_0}{h_1} ^{w}
+        \label{eq:hill}
+    \end{equation}
+    
+
+    $w$ is the spread exponent, by \textcite{Hill1955} is given in \autoref{eq:exponent}, where $R$ is the roll radius.
+
+    \begin{equation}
+        w = 0.5 \exp \left( - \frac{b_0}{2 \sqrt{R \Delta h}} \right)
+        \label{eq:exponent}
+    \end{equation}
+
+    \section{Usage instructions}\label{sec:usage-instructions}
+
+    The plugin can be loaded under the name \texttt{pyroll\_hill\_spreading}.
+
+    An implementation of the \lstinline{spread} hook on \lstinline{RollPass} is provided,
+    calculating the spread using the equivalent rectangle approach and hill's model.
+
+    Base implementations of them is provided, so it should work out of the box.
+    For \lstinline{hill_exponent} the equation~\ref{eq:exponent} is implemented.
+    Provide your own hook implementations or set attributes on the \lstinline{RollPass} instances to alter the spreading behavior.
+
+    \printbibliography
+
+\end{document}
