@@ -7,7 +7,7 @@ def hill_exponent(roll_pass: RollPass):
     equivalent_height_change = roll_pass.in_profile.equivalent_rectangle.height - roll_pass.out_profile.equivalent_rectangle.height
     in_equivalent_width = roll_pass.in_profile.equivalent_rectangle.width
 
-    return 0.5 * np.exp(- in_equivalent_width / (2 * np.sqrt(roll_pass.roll.nominal_radius * equivalent_height_change)))
+    return 0.5 * np.exp(- in_equivalent_width / (2 * np.sqrt(roll_pass.roll.working_radius * equivalent_height_change)))
 
 
 @RollPass.hookimpl
