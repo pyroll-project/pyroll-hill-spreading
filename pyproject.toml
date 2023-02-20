@@ -1,6 +1,6 @@
 [project]
 name = "pyroll-hill-spreading"
-description = "Plugin for PyRoll providing the Hill spreading model."
+description = "Plugin for PyRolL providing the Hill spreading model."
 authors = [
     { name="Christoph Renzing", email="christoph.renzing@imf.tu-freiberg.de" }
 ]
@@ -20,7 +20,7 @@ classifiers = [
 ]
 
 requires-python= ">=3.9, <4.0"
-dependencies= ["pyroll-core ~= 2.0.0b"]
+dependencies= ["pyroll-core ~= 2.0.0"]
 
 dynamic = ["version"]
 

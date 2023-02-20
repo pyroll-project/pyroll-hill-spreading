@@ -1,33 +1,44 @@
 import numpy as np
 
-from pyroll.core import RollPass, root_hooks, Unit
+from pyroll.core import RollPass, ThreeRollPass, root_hooks, Unit
 from pyroll.core.hooks import Hook
 
-VERSION = "2.0.0b"
+VERSION = "2.0.0"
 
 RollPass.hill_exponent = Hook[float]()
+"""Exponent w for for Hill's spread equation."""
+
+root_hooks.add(Unit.OutProfile.width)
 
 
 @RollPass.hill_exponent
 def hill_exponent(self: RollPass):
-    equivalent_height_change = self.in_profile.equivalent_height - self.out_profile.equivalent_height
-    in_equivalent_width = self.in_profile.equivalent_width
+    height_change = self.in_profile.equivalent_height - self.out_profile.equivalent_height
+    return 0.5 * np.exp(- self.in_profile.equivalent_width / (2 * np.sqrt(self.roll.working_radius * height_change)))
 
-    return 0.5 * np.exp(- in_equivalent_width / (2 * np.sqrt(self.roll.working_radius * equivalent_height_change)))
+
+@RollPass.spread
+def spread(self: RollPass):
+    return (
+            self.draught ** self.hill_exponent
+    )
 
 
 @RollPass.OutProfile.width
 def width(self: RollPass.OutProfile):
-    roll_pass = self.roll_pass()
+    rp = self.roll_pass
 
     if not self.has_set_or_cached("width"):
-        self.width = roll_pass.roll.groove.usable_width
+        return None
 
-    equivalent_compression = (
-            roll_pass.in_profile.equivalent_rectangle.height / roll_pass.out_profile.equivalent_rectangle.height)
-    spread = equivalent_compression ** roll_pass.hill_exponent
-
-    return spread * roll_pass.in_profile.width
+    return rp.spread * rp.in_profile.width
 
 
-root_hooks.add(Unit.OutProfile.width)
+@ThreeRollPass.OutProfile.width
+def width(self: RollPass.OutProfile):
+    rp = self.roll_pass
+
+    if not self.has_set_or_cached("width"):
+        return None
+
+    return rp.spread * rp.in_profile.width

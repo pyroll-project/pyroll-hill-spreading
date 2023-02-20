@@ -1,6 +1,6 @@
-# PyRoll Hill Spreading
+# PyRolL Hill Spreading
 
-Plugin for PyRoll providing the Hill spreading model.
+Plugin for PyRolL providing the Hill spreading model.
 
 For the docs, see [here](docs/docs.pdf).
 
