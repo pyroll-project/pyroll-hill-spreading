@@ -13,14 +13,9 @@ import pyroll.hill_spreading
 DE_COUNT = 50
 
 
-@pytest.mark.skipif(not pyroll.hill_spreading.PILLAR_MODEL_INSTALLED, reason="Pillar model is not installed.")
+@pytest.mark.skipif(not pyroll.hill_spreading.PILLAR_MODEL_LOADED, reason="Pillar model is not installed.")
 def test_solve(tmp_path: Path, caplog):
     caplog.set_level(logging.INFO, logger="pyroll")
-
-    import pyroll.pillar_model
-
-    importlib.reload(pyroll.hill_spreading)
-
     pyroll.pillar_model.PILLAR_COUNT = 30
 
     in_profile = Profile.square(
