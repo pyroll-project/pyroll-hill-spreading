@@ -1,6 +1,6 @@
 [build]
 packages = [
-    "pyroll" # place your package in the pyroll namespace
+    "pyroll"
 ]
 
 [version]
@@ -10,10 +10,9 @@ path = "pyroll/hill_spreading.py"
 path = ".venv"
 dependencies = [
     "pytest ~= 7.0",
-    "pyroll-report ~= 2.0.0b",
+    "pyroll-report ~= 2.0",
 ]
 features = ["pillar-model"]
-
 
 [envs.docs]
 path = ""
@@ -24,7 +23,7 @@ dependencies = [
 ]
 
 [envs.docs.scripts]
-build = "latexmk --cd --pdf --shell-escape docs/docs" # compile LaTeX docs with latexmk
+build = "latexmk --cd --pdf --shell-escape docs/docs"
 
 [envs.test]
 path = ""

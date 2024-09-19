@@ -5,20 +5,6 @@ authors = [
     { name="Christoph Renzing", email="christoph.renzing@imf.tu-freiberg.de" }
 ]
 license = "BSD-3-Clause"
-homepage = "https://pyroll-project.github.io/"
-repository = "https://github.com/pyroll-project/pyroll-hill-spreading"
-documentation = "https://github.com/pyroll-project/pyroll-hill-spreading/blob/main/docs/docs.pdf"
-packages = [
-    { include = "pyroll/hill_spreading" }
-]
-readme = "README.md"
-classifiers = [
-    "Intended Audience :: Science/Research",
-    "Intended Audience :: Manufacturing",
-    "Operating System :: OS Independent",
-    "Topic :: Scientific/Engineering"
-]
-
 requires-python= ">=3.9, <4.0"
 dependencies= [
     "pyroll-core ~= 2.0"
@@ -34,4 +20,20 @@ pillar-model = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+
+homepage = "https://pyroll-project.github.io/"
+repository = "https://github.com/pyroll-project/pyroll-hill-spreading"
+documentation = "https://github.com/pyroll-project/pyroll-hill-spreading/blob/main/docs/docs.pdf"
+
+readme = "README.md"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Manufacturing",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering"
+]
+
+
+
 
