@@ -1,6 +1,6 @@
 [build]
 packages = [
-    "pyroll" # place your package in the pyroll namespace
+    "pyroll"
 ]
 
 [version]
@@ -13,7 +13,6 @@ dependencies = [
     "pyroll-report ~= 2.0",
 ]
 
-
 [envs.docs]
 path = ""
 dependencies = [
@@ -23,7 +22,7 @@ dependencies = [
 ]
 
 [envs.docs.scripts]
-build = "latexmk --cd --pdf --shell-escape docs/docs" # compile LaTeX docs with latexmk
+build = "latexmk --cd --pdf --shell-escape docs/docs"
 
 [envs.test]
 path = ""
