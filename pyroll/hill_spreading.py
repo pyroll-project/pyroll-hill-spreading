@@ -4,7 +4,7 @@ import numpy as np
 from pyroll.core import BaseRollPass, RollPass, ThreeRollPass, root_hooks, Unit
 from pyroll.core.hooks import Hook
 
-VERSION = "2.0.1"
+VERSION = "2.0.2"
 PILLAR_MODEL_LOADED = False
 
 BaseRollPass.hill_exponent = Hook[float]()
