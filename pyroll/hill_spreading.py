@@ -7,10 +7,10 @@ from pyroll.core.hooks import Hook
 VERSION = "3.0.0"
 PILLAR_MODEL_LOADED = False
 
-BaseRollPass.hill_exponent = Hook[float]()
+SymmetricRollPass.hill_exponent = Hook[float]()
 """Exponent w for for Hill's spread equation."""
 
-BaseRollPass.hill_pre_factor = Hook[float]()
+SymmetricRollPass.hill_pre_factor = Hook[float]()
 """Pre factor k for Hill's spread equation.'"""
 
 
